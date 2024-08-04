@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Refund Request Form</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f4f4f9;
+				margin: 0;
+				padding: 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.container {
+				max-width: 600px;
+				width: 100%;
+				background: white;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+
+			h2 {
+				margin-top: 0;
+				color: #333;
+			}
+
+			.form-group {
+				margin-bottom: 15px;
+			}
+
+			.form-group label {
+				display: block;
+				margin-bottom: 5px;
+				font-weight: bold;
+				color: #333;
+			}
+
+			.form-group input,
+			.form-group textarea {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+			.form-group textarea {
+				resize: vertical;
+				min-height: 100px;
+			}
+
+			.form-group input[type="submit"] {
+				background-color: #007bff;
+				color: white;
+				border: none;
+				cursor: pointer;
+				font-size: 16px;
+				padding: 15px;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+
+			.form-group input[type="submit"]:hover {
+				background-color: #0056b3;
+			}
+
+			.form-group input[type="submit"]:disabled {
+				background-color: #cccccc;
+				cursor: not-allowed;
+			}
+
+			.error-message {
+				color: red;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Refund Request Form</h2>
+			<form id="refundForm">
+				<div class="form-group">
+					<label for="name">Full Name</label>
+					<input type="text" id="name" name="name" required />
+				</div>
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div class="form-group">
+					<label for="orderNumber">Order Number</label>
+					<input
+						type="text"
+						id="orderNumber"
+						name="orderNumber"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="reason">Reason for Refund</label>
+					<textarea id="reason" name="reason" required></textarea>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Submit Request" />
+				</div>
+			</form>
+		</div>
+
+		<script>
+			// const urlParams = new URLSearchParams(window.location.search);
+			// const courseId = urlParams.get("courseId");
+			// document
+			// 	.getElementById("refundForm")
+			// 	.addEventListener("submit", function (event) {
+			// 		event.preventDefault(); // Prevent the default form submission
+			// 		sendRefundEmail();
+			// 	});
+
+			const urlParams = new URLSearchParams(window.location.search);
+			const courseId = urlParams.get("courseId");
+			document
+				.getElementById("refundForm")
+				.addEventListener("submit", function (event) {
+					event.preventDefault(); // Prevent the default form submission
+
+					alert("Refund request submitted successfully!");
+
+					// Optionally, you could reset the form or hide it
+					event.target.reset();
+					window.location.href = `course_details.html?courseId=${courseId}&refund=true`;
+				});
+		</script>
+	</body>
+</html>

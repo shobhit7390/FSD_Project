@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learners and Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .learner {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .learner img {
+            max-width: 100px;
+            height: auto;
+        }
+        .course {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .course img {
+            max-width: 80px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learners and Courses</h1>
+    <div id="learners-container"></div>
+
+    <script>
+        // Fetch data from the API and display it
+        fetch('http://localhost:8090/learners') // Replace with your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                const learnersContainer = document.getElementById('learners-container');
+                
+                data.forEach(learner => {
+                    const learnerDiv = document.createElement('div');
+                    learnerDiv.className = 'learner';
+                    learnerDiv.innerHTML = `
+                        <h2>${learner.firstName} ${learner.lastName}</h2>
+                        <p><strong>Email:</strong> ${learner.email}</p>
+                        <p><strong>Phone:</strong> ${learner.phone}</p>
+                        <p><strong>Bio:</strong> ${learner.bio}</p>
+                        <img src="${learner.profilePic}" alt="${learner.firstName}'s profile picture">
+                    `;
+
+                    learner.courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.className = 'course';
+                        courseDiv.innerHTML = `
+                            <h3>${course.courseName}</h3>
+                            <p><strong>Description:</strong> ${course.description}</p>
+                            <p><strong>Category:</strong> ${course.category}</p>
+                            <p><strong>Price:</strong> $${course.price}</p>
+                            <p><strong>Rating:</strong> ${course.rating}</p>
+                            <p><strong>Instructor:</strong> ${course.instructorName}</p>
+                            <p><strong>Duration:</strong> ${course.duration}</p>
+                            <img src="${course.coursePic}" alt="${course.courseName} picture">
+                        `;
+                        learnerDiv.appendChild(courseDiv);
+                    });
+
+                    learnersContainer.appendChild(learnerDiv);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>

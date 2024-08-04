@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login Page</title>
+		<link rel="stylesheet" href="css/style.css" />
+
+		<style>
+			.form-container {
+				max-width: 500px;
+				margin: 2rem auto;
+				padding: 2rem;
+				background: #ffffff;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			h2 {
+				text-align: center;
+				color: #333;
+				margin-bottom: 1.5rem;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.form-group {
+				margin-bottom: 1rem;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+				color: #555;
+			}
+
+			input[type="email"],
+			input[type="password"] {
+				width: 100%;
+				padding: 0.75rem;
+				border: 1px solid #ddd;
+				border-radius: 8px;
+				box-sizing: border-box;
+				font-size: 1rem;
+			}
+
+			.btn-submit {
+				background-color: #28a745;
+				color: #fff;
+				border: none;
+				padding: 0.75rem;
+				border-radius: 8px;
+				cursor: pointer;
+				font-size: 1rem;
+				transition: background-color 0.3s ease;
+				margin-top: 1rem;
+			}
+
+			button:hover {
+				background-color: #218838;
+			}
+
+			.roles-group {
+				margin-bottom: 1rem;
+			}
+
+			.roles-container {
+				display: flex;
+				gap: 1rem;
+			}
+
+			.roles-container label {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<a href="main.html" class="navbar-brand">CourseHub</a>
+					<ul class="navbar-menu">
+						<li><a href="main.html">Home</a></li>
+						<li><a href="courses.html">Courses</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="profile.html">My Profile</a></li>
+					</ul>
+					<div class="navbar-actions">
+						<input
+							type="text"
+							placeholder="Search..."
+							class="search-bar"
+						/>
+						<a href="login.html"
+							><button class="btn sign-in">Sign In</button></a
+						>
+						<a href="register2.html"
+							><button class="btn sign-up">Sign Up</button></a
+						>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="form-container">
+			<h2>Login</h2>
+			<form id="loginForm">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						required
+					/>
+				</div>
+				<div class="form-group roles-group">
+					<label>Role:</label>
+					<div class="roles-container">
+						<label
+							><input type="radio" name="roles" value="learner" />
+							Learner</label
+						>
+						<label
+							><input
+								type="radio"
+								name="roles"
+								value="instructor"
+							/>
+							Instructor</label
+						>
+					</div>
+				</div>
+				<button class="btn-submit" type="submit">Login</button>
+			</form>
+		</div>
+
+		<!-- Modal Structure -->
+		<div class="modal" id="coursePreferencesModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Course Preferences</h4>
+						<button type="button" class="close">&times;</button>
+					</div>
+
+					<div class="modal-body">
+						<form id="preferencesForm">
+							<label for="categories"
+								>Preferred Course Categories:</label
+							>
+							<select
+								id="categories"
+								name="categories"
+								class="form-control"
+								multiple
+							>
+								<!-- Categories will be populated here -->
+							</select>
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="close">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// document.getElementById('loginForm').addEventListener('submit', function(e) {
+			//     e.preventDefault();
+
+			//     const email = document.getElementById('email').value;
+			//     const password = document.getElementById('password').value;
+			//     const role = document.querySelector('input[name="roles"]:checked')?.value;
+
+			//     const data={
+			//         email:email,
+			//         password:password,
+			//         role:role
+			//     }
+
+			//     fetch('http://localhost:8090/login', {
+			//         method: 'POST',
+			//         headers: {
+			//             'Content-Type': 'application/json',
+			//         },
+			//         body: JSON.stringify(data)
+			//     })
+			//     .then(response => {
+			//         if (!response.ok) {
+			//             throw new Error('Login failed');
+			//         }
+			//         return response.json();
+			//     })
+			//     .then(user => {
+			//         // Store user data in localStorage
+			//         localStorage.setItem('currentUser', JSON.stringify(user));
+			//         // Redirect to dashboard or home page
+			//         if(user.roles == 'learner'){
+			//             window.location.href = '/main.html';
+			//         } else{
+			//             window.location.href='/instructor.html';
+			//         }
+
+			//     })
+			//     .catch(error => {
+			//         console.error('Error:', error);
+			//         alert('Login failed. Please check your credentials.');
+			//     });
+			// });
+
+			document
+				.getElementById("loginForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+
+					const email = document.getElementById("email").value;
+					const password = document.getElementById("password").value;
+					const role = document.querySelector(
+						'input[name="roles"]:checked'
+					)?.value;
+
+					const data = {
+						email: email,
+						password: password,
+						role: role,
+					};
+
+					fetch("http://localhost:8090/login", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					})
+						.then((response) => {
+							if (!response.ok) {
+								throw new Error("Login failed");
+							}
+							return response.json();
+						})
+						.then((user) => {
+							// Store user data in localStorage
+							localStorage.setItem(
+								"currentUser",
+								JSON.stringify(user)
+							);
+							// Set session storage flag for preferences modal
+							sessionStorage.setItem("preferencesSet", "false");
+
+							// Show preferences modal for learners
+							if (user.roles === "learner") {
+								openPreferencesModal();
+							} else {
+								window.location.href = "/instructor.html";
+							}
+						})
+						.catch((error) => {
+							console.error("Error:", error);
+							alert(
+								"Login failed. Please check your credentials."
+							);
+						});
+				});
+
+			function openPreferencesModal() {
+				fetchCategories();
+				document.getElementById(
+					"coursePreferencesModal"
+				).style.display = "block";
+			}
+
+			function fetchCategories() {
+				fetch("http://localhost:8090/courses/categories")
+					.then((response) => response.json())
+					.then((categories) => {
+						const categoriesSelect =
+							document.getElementById("categories");
+						categoriesSelect.innerHTML = ""; // Clear existing options
+						categories.forEach((category) => {
+							const option = document.createElement("option");
+							option.value = category;
+							option.text = category;
+							categoriesSelect.appendChild(option);
+						});
+					})
+					.catch((error) => console.error("Error:", error));
+			}
+
+			document
+				.getElementById("preferencesForm")
+				.addEventListener("submit", function (event) {
+					event.preventDefault();
+
+					const selectedOptions =
+						document.getElementById("categories").selectedOptions;
+					const categories = Array.from(selectedOptions).map(
+						(option) => option.value
+					);
+
+					fetch("http://localhost:8090/courses/recommendations", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ categories: categories }),
+					})
+						.then((response) => response.json())
+						.then((courses) => {
+							// Store recommended courses in localStorage
+							localStorage.setItem(
+								"recommendedCourses",
+								JSON.stringify(courses)
+							);
+							// Close the modal
+							document.getElementById(
+								"coursePreferencesModal"
+							).style.display = "none";
+							// Redirect to the main page
+							window.location.href = "/main.html";
+						})
+						.catch((error) => console.error("Error:", error));
+				});
+
+			document.querySelectorAll(".close").forEach((btn) => {
+				btn.onclick = function () {
+					document.getElementById(
+						"coursePreferencesModal"
+					).style.display = "none";
+				};
+			});
+
+			window.onclick = function (event) {
+				if (
+					event.target ==
+					document.getElementById("coursePreferencesModal")
+				) {
+					document.getElementById(
+						"coursePreferencesModal"
+					).style.display = "none";
+				}
+			};
+		</script>
+	</body>
+</html>

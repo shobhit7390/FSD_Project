@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        /* body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+            */
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 50px;
+        } 
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .create {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .show-courses {
+            background-color: #2196F3;
+            color: white;
+        }
+        .show-learners {
+            background-color: #FFC107;
+            color: white;
+        }
+    </style>
+    
+</head>
+<body>
+
+
+    <div class="nav-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="instructor.html" class="navbar-brand">CourseHub</a>
+                <ul class="navbar-menu">
+                    <li><a href="instructor.html">Instructor Page</a></li>
+                </ul>
+                <div class="navbar-actions">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <a href="login.html"><button class="btn sign-in">Sign In</button></a>
+                    <a href="register2.html"><button class="btn sign-up">Sign Up</button></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <a href="create_course.html" class="box create">Create Course</a>
+        <a href="instructor_courses.html" class="box show-courses">Show All Courses</a>
+        <a href="#" class="box show-learners">Show All Learners</a>
+    </div>
+
+    
+
+
+    <div class="card-container">
+        <!-- Cards will be inserted here -->
+    </div>
+
+  
+
+
+    
+    <script>
+
+        // auth.js
+function getCurrentUser() {
+    const userJson = localStorage.getItem('currentUser');
+    return userJson ? JSON.parse(userJson) : null;
+}
+
+function isLoggedIn() {
+    return getCurrentUser() !== null;
+}
+
+function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = '/login.html';
+}
+
+// Check login status on each page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (!isLoggedIn() && !window.location.pathname.includes('/login.html')) {
+        window.location.href = '/login.html';
+    }
+});
+
+
+
+// Function to update navbar
+function updateNavbar() {
+    const userJson = localStorage.getItem('currentUser');
+    const navbarActions = document.querySelector('.navbar-actions');
+    
+    if (userJson) {
+      // User is logged in
+      navbarActions.innerHTML = `
+        <span id="welcomeUser"></span>
+        <button class="btn" onclick="logout()">Logout</button>
+      `;
+      const user = JSON.parse(userJson);
+      document.getElementById('welcomeUser').textContent = `Welcome, ${user.firstName || 'User'}!`;
+    } else {
+      // User is not logged in
+      navbarActions.innerHTML = `
+        <input type="text" placeholder="Search..." class="search-bar">
+        <a href="login.html"><button class="btn sign-in">Sign In</button></a>
+        <a href="register2.html"><button class="btn sign-up">Sign Up</button></a>
+      `;
+    }
+}
+
+// Logout function
+function logout() {
+    localStorage.removeItem('currentUser');
+    updateNavbar();
+    window.location.href = 'login.html';
+}
+// Call updateNavbar when the page loads
+document.addEventListener('DOMContentLoaded', updateNavbar);
+        
+    </script> 
+</body>
+</html>
+
+
+    

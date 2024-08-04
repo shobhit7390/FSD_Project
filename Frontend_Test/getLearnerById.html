@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learner Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .learner {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .learner img {
+            max-width: 100px;
+            height: auto;
+        }
+        .course {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .course img {
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learner Details</h1>
+
+    <label for="learnerId">Enter Learner ID:</label>
+    <input type="number" id="learnerId" />
+    <button onclick="fetchLearner()">Fetch Learner</button>
+
+    <div id="learner-container"></div>
+
+    <script>
+        function fetchLearner() {
+            const learnerId = document.getElementById('learnerId').value;
+            fetch(`http://localhost:8090/learners/${learnerId}`) // Replace with your API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const learnerContainer = document.getElementById('learner-container');
+                    console.log(data.profilePic);
+                    learnerContainer.innerHTML = `
+                        <div class="learner">
+                            <h2>${data.firstName} ${data.lastName}</h2>
+                            <p><strong>Email:</strong> ${data.email}</p>
+                            <p><strong>Phone:</strong> ${data.phone}</p>
+                            <p><strong>Bio:</strong> ${data.bio}</p>
+                            <img src="${data.profilePic}" alt="${data.firstName}'s profile picture">
+                        </div>
+                    `;
+
+                    data.courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.className = 'course';
+                        courseDiv.innerHTML = `
+                            <h3>${course.courseName}</h3>
+                            <p><strong>Description:</strong> ${course.description}</p>
+                            <p><strong>Category:</strong> ${course.category}</p>
+                            <p><strong>Price:</strong> $${course.price}</p>
+                            <p><strong>Rating:</strong> ${course.rating}</p>
+                            <p><strong>Instructor:</strong> ${course.instructorName}</p>
+                            <p><strong>Duration:</strong> ${course.duration}</p>
+                            <img src="${course.coursePic}" alt="${course.courseName} picture">
+                        `;
+                        learnerContainer.appendChild(courseDiv);
+                    });
+                })
+                .catch(error => console.error('Error fetching learner:', error));
+        }
+    </script>
+</body>
+</html>

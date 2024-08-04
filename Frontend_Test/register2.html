@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .input-name, 
+        #profile-pic,
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+
+        .roles-group {
+            margin-bottom: 1rem;
+        }
+
+        .roles-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .roles-container label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="nav-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="main.html" class="navbar-brand">CourseHub</a>
+                <ul class="navbar-menu">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="profile.html">My Profile</a></li>
+                </ul>
+                <div class="navbar-actions">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <a href="login.html"><button class="btn sign-in">Sign In</button></a>
+                    <a href="register2.html"><button class="btn sign-up">Sign Up</button></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="responseMessage" class="container"></div>
+    <div id="errorMessage" class="container"></div>
+
+    <div class="form-container">
+        <h2>Register</h2>
+        <form method="post" id="registerForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input class="input-name" type="text" id="first-name" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input class="input-name" type="text" id="last-name" name="lastName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="profile-pic">Profile Picture</label>
+                <input type="text" id="profile-pic" name="profilePic" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="4"></textarea>
+            </div>
+            <div class="form-group roles-group">
+                <label>Roles</label>
+                <div class="roles-container">
+                    <label><input type="radio" name="roles" value="learner"> Learner</label>
+                    <label><input type="radio" name="roles" value="instructor"> Instructor</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" required>
+            </div>
+            <button class="btn-submit" type="submit">Register</button>
+            
+        </form>
+    </div>
+
+
+    <script>
+
+        let form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
+
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            let formData = new FormData(form);
+            let data = Object.fromEntries(formData);
+            let jsonData = JSON.stringify(data);
+            let response=await fetch("http://localhost:8090/users", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jsonData,
+                
+            });
+            if(response.ok){
+                document.getElementById('responseMessage').innerHTML="  Data sent sucessfully :)";
+                window.location.href='login.html';
+            }
+            else{
+                document.getElementById('errorMssg').innerHTML="  Couldn't send data :("
+
+            }
+            // fetch("http://localhost:8089/Student/api/v1.0/student", {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: jsonData,
+                
+            // })
+            // .then(res =>  res.json())
+            //  .then(result => console.log(result))
+            //  .catch(err => console.log(err))
+            
+        }
+
+// document.getElementById('myForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevent the default form submission
+
+//     // Get form data
+//     const formData = new FormData(this);
+//     const data = {
+//         firstName: formData.get('firstName'),
+//         lastName: formData.get('lastName'),
+//         email: formData.get('email'),
+//         phone: formData.get('phone'),
+//         phone: formData.get('profilePic'),
+//         bio: formData.get('bio'),
+//         role: formData.get('role'),
+//         password: formData.get('password')
+//     };
+
+//     // Send data to the backend
+//     fetch('http://localhost:8090/users', { 
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.text())
+//     .then(result => {
+//         alert(result); // Handle the response
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// }
+// );
+
+
+    </script>
+
+
+</body>
+</html>

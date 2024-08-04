@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Course Cards</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="/js/auth.js"></script>
+		<!-- <style>
+
+        /* styles.css */
+
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-dialog {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+/* Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Button */
+button {
+  background-color: #5cb85c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+/* Select Dropdown */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+    </style> -->
+	</head>
+	<body>
+		<div class="nav-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<a href="main.html" class="navbar-brand">CourseHub</a>
+					<ul class="navbar-menu">
+						<li><a href="main.html">Home</a></li>
+						<li><a href="courses.html">Courses</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="profile.html">My Profile</a></li>
+					</ul>
+					<div class="navbar-actions">
+						<input
+							type="text"
+							placeholder="Search..."
+							class="search-bar"
+						/>
+						<a href="login.html"
+							><button class="btn sign-in">Sign In</button></a
+						>
+						<a href="register2.html"
+							><button class="btn sign-up">Sign Up</button></a
+						>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="logo">
+			<img src="images/main_img.png" alt="CoursHub" />
+		</div>
+
+		<center><h1>Our Popular Courses</h1></center>
+
+		<div class="card-container">
+			<!-- Cards will be inserted here -->
+		</div>
+
+		<center><h1>Recommened Courses</h1></center>
+		<div class="card-container recommendedCard">
+			<!-- Recommended courses will be displayed here -->
+		</div>
+
+		<!-- <div class="modal" id="coursePreferencesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <div class="modal-header">
+          <h4 class="modal-title">Course Preferences</h4>
+          <button type="button" class="close">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+          <form id="preferencesForm">
+            <label for="categories">Preferred Course Categories:</label>
+            <select id="categories" name="categories" class="form-control" multiple>
+              <!-- Categories will be populated here 
+            </select>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="button" class="close">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+
+		<div class="partners">
+			<h2>Our Partners</h2>
+			<div class="partners-logos">
+				<img src="images/apple.png" alt="Partner 1" />
+				<img src="images/amazon.png" alt="Partner 2" />
+				<img src="images/google.png" alt="Partner 3" />
+				<img src="images/flipkart.png" alt="Partner 4" />
+				<img src="images/microsoft.png" alt="Partner 5" />
+				<img src="images/atlassian.png" alt="Partner 6" />
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="footer-info">
+					<h3>About Us</h3>
+					<p>
+						We provide top-quality courses to help you advance your
+						skills and career. Join our community to learn from
+						industry experts.
+					</p>
+				</div>
+				<div class="footer-links">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Courses</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+				<div class="footer-contact">
+					<h3>Contact Us</h3>
+					<p>Email: info@coursehub.com</p>
+					<p>Phone: +1 234 567 890</p>
+				</div>
+				<div class="footer-social">
+					<h3>Follow Us</h3>
+					<a href="#" class="social-icon"
+						><img
+							src="https://via.placeholder.com/24x24?text=F"
+							alt="Facebook"
+					/></a>
+					<a href="#" class="social-icon"
+						><img
+							src="https://via.placeholder.com/24x24?text=T"
+							alt="Twitter"
+					/></a>
+					<a href="#" class="social-icon"
+						><img
+							src="https://via.placeholder.com/24x24?text=I"
+							alt="Instagram"
+					/></a>
+					<a href="#" class="social-icon"
+						><img
+							src="https://via.placeholder.com/24x24?text=L"
+							alt="LinkedIn"
+					/></a>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 CourseHub. All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			// document.addEventListener('DOMContentLoaded', function() {
+			//     // Function to open the modal
+			//     function openModal() {
+			//         document.getElementById('coursePreferencesModal').style.display = "block";
+			//     }
+
+			//     // Fetch categories from backend when the modal is loaded
+			//     function fetchCategories() {
+			//         fetch('http://localhost:8090/courses/categories')
+			//             .then(response => response.json())
+			//             .then(categories => {
+			//                 const categoriesSelect = document.getElementById('categories');
+			//                 categoriesSelect.innerHTML = ''; // Clear existing options
+			//                 categories.forEach(category => {
+			//                     const option = document.createElement('option');
+			//                     option.value = category;
+			//                     option.text = category;
+			//                     categoriesSelect.appendChild(option);
+			//                 });
+			//             })
+			//             .catch(error => console.error('Error:', error));
+			//     }
+
+			//     // Open the modal on successful login
+			//     function onLoginSuccess() {
+			//         fetchCategories();
+			//         openModal();
+			//     }
+
+			//     // Mock login success event for demonstration
+			//     // Replace this with your actual login success event handling
+			//     setTimeout(onLoginSuccess, 1000); // Simulate successful login after 1 second
+
+			//     // Close the modal when clicking the close button
+			//     document.querySelectorAll('.close').forEach(btn => {
+			//         btn.onclick = function() {
+			//             document.getElementById('coursePreferencesModal').style.display = "none";
+			//         }
+			//     });
+
+			//     // Close the modal when clicking outside of it
+			//     window.onclick = function(event) {
+			//         if (event.target == document.getElementById('coursePreferencesModal')) {
+			//             document.getElementById('coursePreferencesModal').style.display = "none";
+			//         }
+			//     }
+
+			//     // Handle form submission to fetch recommended courses and close modal
+			//     document.getElementById('preferencesForm').addEventListener('submit', function(event) {
+			//         event.preventDefault();
+
+			//         const selectedOptions = document.getElementById('categories').selectedOptions;
+			//         const categories = Array.from(selectedOptions).map(option => option.value);
+
+			//         fetch('http://localhost:8090/courses/recommendations', {
+			//             method: 'POST',
+			//             headers: {
+			//                 'Content-Type': 'application/json'
+			//             },
+			//             body: JSON.stringify({ categories: categories })
+			//         })
+			//         .then(response => response.json())
+			//         .then(courses => {
+			//             // Display recommended courses
+			//             console.log(courses);
+			//             // You can update your frontend to display the courses as needed
+			//             // Close the modal
+			//             document.getElementById('coursePreferencesModal').style.display = "none";
+			//         })
+			//         .catch(error => console.error('Error:', error));
+			//     });
+			// });
+
+			function displayRecommendedCourses() {
+				const courses = JSON.parse(
+					localStorage.getItem("recommendedCourses")
+				);
+				const cardContainer =
+					document.querySelector(".recommendedCard");
+
+				if (courses && courses.length > 0) {
+					cardContainer.innerHTML = ""; // Clear existing content
+					courses.forEach((course) => {
+						const card = document.createElement("div");
+						card.className = "card";
+						card.innerHTML = `
+                <a id="a_cardId" href="course_details.html?courseId=${course.courseId}">
+                <img src="${course.coursePic}" alt="${course.courseName}" class="card-img">
+                <div class="card-content">
+                    <h2 class="card-title">${course.courseName}</h2>
+                    <p class="card-description">${course.description}</p>
+                    <strong><p class="card-description">${course.instructorName}</p></strong>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">$${course.price}</span>
+                    <span class="card-rating">${course.rating}</span>
+                </div>
+                </a>
+            `;
+						cardContainer.appendChild(card);
+					});
+				} else {
+					cardContainer.innerHTML =
+						"<p>No recommended courses available.</p>";
+				}
+			}
+
+			// Call the function to display recommended courses when the page loads
+			document.addEventListener(
+				"DOMContentLoaded",
+				displayRecommendedCourses
+			);
+
+			const apiUrl = "http://localhost:8090/courses";
+			const cardContainer = document.querySelector(".card-container");
+
+			async function fetchAndDisplayCourses() {
+				try {
+					const response = await fetch(apiUrl);
+					if (!response.ok) {
+						throw new Error("Network response was not ok");
+					}
+					const courses = await response.json();
+					cardContainer.innerHTML = "";
+					courses.forEach((course) => {
+						const card = document.createElement("div");
+						card.className = "card";
+						card.innerHTML = `
+                        <a id="a_cardId" href="course_details.html?courseId=${course.courseId}">
+                        <img src="${course.coursePic}" alt="${course.courseName}" class="card-img">
+                        <div class="card-content">
+                            <h2 class="card-title">${course.courseName}</h2>
+                            <p class="card-description">${course.description}</p>
+                            <strong><p class="card-description">${course.instructorName}</p></strong>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-price">$${course.price}</span>
+                            <span class="card-rating">${course.rating}</span>
+                        </div>
+                        </a>
+                    `;
+						cardContainer.appendChild(card);
+					});
+				} catch (error) {
+					console.error("Error fetching the courses:", error);
+					cardContainer.innerHTML =
+						"<p>Error loading courses. Please try again later.</p>";
+				}
+			}
+
+			fetchAndDisplayCourses();
+
+			// Example: Display user info
+			// const user = getCurrentUser();
+			// if (user) {
+			//     document.getElementById('userInfo').textContent = `Welcome, ${user.email}`;
+			// }
+
+			// Example: Logout button
+			// document.getElementById('logoutButton').addEventListener('click', logout);
+
+			// Example: Check role for access control
+			// if (user && user.role === 'ADMIN') {
+			//     document.getElementById('adminPanel').style.display = 'block';
+			// }
+		</script>
+	</body>
+</html>

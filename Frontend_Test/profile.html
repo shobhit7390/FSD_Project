@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Profile</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/profile.js"></script>
+	</head>
+
+	<body>
+		<div class="nav-header">
+			<nav class="navbar">
+				<div class="navbar-container">
+					<a href="main.html" class="navbar-brand">CourseHub</a>
+					<ul class="navbar-menu">
+						<li><a href="main.html">Home</a></li>
+						<li><a href="courses.html">Courses</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="profile.html">My Profile</a></li>
+					</ul>
+					<div class="navbar-actions">
+						<input
+							type="text"
+							placeholder="Search..."
+							class="search-bar"
+						/>
+						<a href="login.html"
+							><button class="btn sign-in">Sign In</button></a
+						>
+						<a href="register2.html"
+							><button class="btn sign-up">Sign Up</button></a
+						>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="profile-card">
+			<div class="profile-header">
+				<img id="profilePic" src="" alt="Profile Picture" />
+				<div class="profile-header-details">
+					<h1 id="userName">User's Name</h1>
+					<p id="userEmail">Email: user@example.com</p>
+					<p id="userPhone">Phone: +1234567890</p>
+				</div>
+			</div>
+			<div class="profile-bio">
+				<h2>Bio</h2>
+				<p id="userBio">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</p>
+			</div>
+
+			<div class="profile-courses">
+				<h2>Enrolled Courses</h2>
+				<ul class="card-container">
+					<!-- Courses will be added here dynamically -->
+				</ul>
+			</div>
+
+			<div class="coursesList"></div>
+		</div>
+	</body>
+</html>

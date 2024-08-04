@@ -1,0 +1,707 @@
+/* Basic reset and global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.nav-header .navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.nav-header .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-header .navbar-brand {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-header .navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-header .navbar-menu li {
+    margin-left: 20px;
+}
+
+.nav-header .navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-header .navbar-menu a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+/* Card container styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25em;
+    margin: 0;
+    color: #333;
+}
+
+.card-description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 10px 0;
+}
+
+#a_cardId{
+    text-decoration: none;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #333;
+    margin: 5px;
+}
+
+.card-price {
+    font-weight: bold;
+}
+
+.card-rating {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.logo{
+    max-width: 100%; 
+    max-height: 100%; 
+    overflow: hidden; 
+    text-align: center; /
+}
+
+.logo img{
+    max-width: 100%; 
+    height: auto;
+}
+
+
+/* Navbar actions (search bar and buttons) */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    width: 200px;
+    transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+.btn {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+}
+
+.sign-in {
+    background-color: #3498db;
+}
+
+.sign-in:hover {
+    background-color: #2980b9;
+}
+
+.sign-up {
+    background-color: #2ecc71;
+}
+
+.sign-up:hover {
+    background-color: #27ae60;
+}
+
+
+/* Partners section styles */
+.partners {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.partners h2 {
+    margin: 0 0 20px;
+    color: #333;
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.partners-logos img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    padding-left: 30px;
+}
+
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-info, .footer-links, .footer-contact, .footer-social {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-info h3, .footer-links h3, .footer-contact h3, .footer-social h3 {
+    margin-bottom: 15px;
+    font-size: 1.25em;
+    color: #f39c12;
+}
+
+.footer-info p, .footer-contact p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f39c12;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+.social-icon img:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #ddd;
+}
+
+
+/* Course Details Section */
+.course-details {
+    margin: 40px 20px 20px; /*Adjusted for navbar*/
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.course-body {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.course-sidebar {
+    width: 350px; /* Adjust width as needed */
+    flex-shrink: 0;
+    margin-top: 40px;
+}
+
+.course-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.course-header img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+
+.course-header h1 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.course-body {
+    padding: 20px;
+}
+
+.course-body p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.course-body span {
+    font-weight: bold;
+}
+
+#refundButton {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #0e072e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#message, #timer {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+
+
+/* ################# */
+
+
+#videoPlayer {
+    margin-top: 20px;
+}
+
+
+.btn.enroll-course {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn.enroll-course:hover {
+    background-color: #0056b3;
+}
+
+
+/* About Us */
+
+.about-us {
+    padding: 2rem 0;
+    background: #f4f4f4;
+}
+
+.about-us .container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-us h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.team {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25%;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    margin: 0.5rem 0;
+}
+
+.mission, .vision {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(192, 186, 186, 0.1);
+    margin-top: 2rem;
+}
+
+
+/* Contact Us Section */
+.contact-us {
+    padding: 2rem 0;
+    background: #f4f4f4;
+}
+
+.contact-us .container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-us h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contact-us .info, .contact-us .form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.contact-us .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-us .info div {
+    width: 30%;
+    padding: 1rem;
+}
+
+.contact-us .info div h3 {
+    margin-top: 0;
+}
+
+.contact-us .info div p {
+    margin-bottom: 1rem;
+}
+
+.contact-us .info div i {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-us .form h3 {
+    margin-top: 0;
+}
+
+.contact-us .form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-us .form form input, 
+.contact-us .form form textarea {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact-us .form form button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    /* font-size: 1rem; */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-us .form form button:hover {
+    background: #555;
+}
+
+
+
+
+.profile-card {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #2980b9;
+    color: #fff;
+  }
+  
+  .profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #fff; /* Optional: add border around the image */
+  }
+  
+  .profile-header-details {
+    flex: 1;
+  }
+  
+  .profile-header-details h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .profile-header-details p {
+    margin: 5px 0;
+  }
+  
+  .profile-bio,
+  .profile-courses {
+    padding: 20px;
+  }
+  
+  .profile-bio h2,
+  .profile-courses h2 {
+    margin-top: 0;
+    color: #2980b9;
+  }
+  
+  .profile-courses ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .profile-courses ul li {
+    margin-bottom: 5px;
+  }
+
+
+
+
+ /* ############ */
+
+ .hidden{
+    display: none;
+ }
+
+
+
+ 
+ /* styles.css */
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-dialog {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  /* Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    background: none;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Button */
+  button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* Select Dropdown */
+  select {
+       padding: 7px;
+       margin-top: 10px;
+       margin-bottom: 9px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
